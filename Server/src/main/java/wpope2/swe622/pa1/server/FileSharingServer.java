@@ -25,6 +25,8 @@ public class FileSharingServer {
         } catch (IOException ioException) {
             System.out.println("Unable to open server socket at port " + configuration.getPort());
         }
+
+// this is a test of editing a file via the iOS app.
     }
 
     /**
