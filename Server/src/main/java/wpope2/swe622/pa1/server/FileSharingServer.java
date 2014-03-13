@@ -1,8 +1,8 @@
 package wpope2.swe622.pa1.server;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Map;
 import java.util.Properties;
 
@@ -11,7 +11,7 @@ public class FileSharingServer {
     private final static String propertiesFileLocation = "server.properties";
     private static ServerConfiguration configuration;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         try {
             initialize();
@@ -26,7 +26,11 @@ public class FileSharingServer {
             System.out.println("Unable to open server socket at port " + configuration.getPort());
         }
 
-        //This version is now.
+        while(true) {
+            Socket socketConnection = serverSocket.accept();
+            BufferedReader stream = new BufferedReader(new InputStreamReader(socketConnection.getInputStream()));
+        }
+
     }
 
     /**
