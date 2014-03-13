@@ -25,6 +25,8 @@ public class FileSharingServer {
         } catch (IOException ioException) {
             System.out.println("Unable to open server socket at port " + configuration.getPort());
         }
+
+        //This version is now.
     }
 
     /**
