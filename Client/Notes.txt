@@ -7,12 +7,11 @@ Read in local configuration file
     Fail if local configuration file is not available
     
 
-Create variables for File being pushed 
-
 NETWORK COMMUNICATION
 Client  -> Server  Initial Connection
-        <-    Ack
-        ->    Request Push or Pull with file information
+        <-      Ack
+        ->      Request Push or Pull with file information
+        <-      Ack w/ reasons
         
 REQUEST STRUCTURE
 - Filename
@@ -22,8 +21,8 @@ POSSIBLE USE CASES
 Server loses connection with Client
 Client loses connection with Server
 Client pushes file that already exists on server
+Server does not have enough file space for file
 
-    
 
 COMMAND INTERFACE
   Push: java -jar client.jar push <file location>
