@@ -1,27 +1,43 @@
 PRE-REQUISITES
 - Confirm that java and shared directory are available on Thor and Zeus.
 
-
 WORKFLOW
 Read in local configuration file
     Fail if local configuration file is not available
     
 
 NETWORK COMMUNICATION
+PUSH
 Client  -> Server  Initial Connection
         <-      Ack
         ->      Request Push or Pull with file information
         <-      Ack w/ reasons
+File    ->
+
+PULL
+Client  -> Server  Initial Connection
+        <-      Ack
+        ->      Request Push or Pull with file information
+        <-      Ack w/ reasons
+Ack     ->
+        <-      File
+
         
 REQUEST STRUCTURE
-- Filename
-- File size in bytes
+- Push or Pull (Enum)
+- Filename (push and pull) (String)
+- File size in bytes (push) (Long)
+
+RESPONSE STRUCTURE
+- Status Code (Enum)
+- Reason (String)
         
 POSSIBLE USE CASES
 Server loses connection with Client
 Client loses connection with Server
 Client pushes file that already exists on server
 Server does not have enough file space for file
+File has a size of zero
 
 
 COMMAND INTERFACE
